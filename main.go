@@ -1,7 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+
+	"github.com/jackkslash/GoGit/commands"
+)
 
 func main() {
-    fmt.Println("Hello, Go project!")
+	fmt.Println("Logs from your program will appear here!")
+
+	if len(os.Args) < 2 {
+		fmt.Fprintf(os.Stderr, "usage: gogit <command> [<args>...]\n")
+		os.Exit(1)
+	}
+
+	var err error
+	switch command := os.Args[1]; command {
+	case "init":
+		err = commands.Init(os.Args)
+	default:
+		err = fmt.Errorf("unknown command %s", command)
+	}
+
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %s\n", err)
+		os.Exit(1)
+	}
 }
