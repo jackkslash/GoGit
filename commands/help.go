@@ -10,6 +10,9 @@ func Help(args []string) error {
 	case "init":
 		fmt.Printf("Initialize a git repository in the current directory or in a specified directory\n")
 		fmt.Printf("Usage: gogit init [<directory>]\n")
+	case "catfile":
+		fmt.Printf("Print the contents of a file in the repository\n")
+		fmt.Printf("Usage: gogit catfile <file>\n")
 	case "help":
 		helpText := `usage: gogit init [<directory>]
 
