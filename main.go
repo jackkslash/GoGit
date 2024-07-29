@@ -21,6 +21,8 @@ func main() {
 		err = commands.Init(os.Args)
 	case "cat-file":
 		err = commands.CatFile(os.Args)
+	case "hash-object":
+		err = commands.HashObject(os.Args)
 	case "help":
 		err = commands.Help(os.Args)
 	default:
